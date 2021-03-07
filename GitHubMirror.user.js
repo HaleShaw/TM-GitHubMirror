@@ -1,9 +1,7 @@
 // ==UserScript==
 // @name               GitHub镜像
-// @name:zh-CN         GitHub镜像
 // @name:en            GitHub Mirror
 // @description        GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
-// @description:zh-CN  GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 // @description:en     GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 // @namespace          https://github.com/HaleShaw
 // @version            1.0.0
