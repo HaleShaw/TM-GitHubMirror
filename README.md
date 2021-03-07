@@ -5,7 +5,7 @@ Tampermonkey-GitHub Mirror
 
 GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
-<font color='red'><h2>请不要在镜像网站登录账号，若因此造成任何损失本人概不负责</h2></font>
+**请不要在镜像网站登录账号，若因此造成任何损失本人概不负责**
 
 ## 背景
 
@@ -19,10 +19,10 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
 - RC1844版本
 
-      内置了多个镜像地址，但是部分地址经常不可用。界面设计复杂，内含太多不必要推广。
+  内置了多个镜像地址，但是部分地址经常不可用。界面设计复杂，内含太多不必要推广。
 - jadezi版本
 
-      根据RC1844版本，精减了大量不稳定镜像，只保留了3个主要稳定镜像。镜像来源于RC1844版。但是也去除了Release、Raw和Zip镜像功能。界面设计占用太大。
+  根据RC1844版本，精减了大量不稳定镜像，只保留了3个主要稳定镜像。镜像来源于RC1844版。但是也去除了Release、Raw和Zip镜像功能。界面设计占用太大。
 
 此功能脚本从诞生至今，已有数个版本演变更新。但介于以上各版本都不尽满意，故去粗取精，创造了[GitHub镜像](https://github.com/HaleShaw/TM-GitHubMirror)。
 
@@ -51,7 +51,7 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
 GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 
-<font color='red'><h2>Please do not login in the mirror site. I will not be responsible for any loss caused by this.</h2></font>
+**Please do not login in the mirror site. I will not be responsible for any loss caused by this.**
 
 ## Background
 
@@ -65,10 +65,10 @@ GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP 
 
 - Version RC1844
 
-      Multiple mirror sites are built in, but some of them are often unavailable. The interface design is complex and contains too many unnecessary promotions.
+  Multiple mirror sites are built in, but some of them are often unavailable. The interface design is complex and contains too many unnecessary promotions.
 - Version jadezi
 
-      According to the RC1844, a large number of unstable mirror sites have been reduced, and only three major stable mirror sites have been retained. The mirror site is from the RC1844. However, Release, RAW, and Zip mirroring are also removed. The interface design is too heavy.
+  According to the RC1844, a large number of unstable mirror sites have been reduced, and only three major stable mirror sites have been retained. The mirror site is from the RC1844. However, Release, RAW, and Zip mirroring are also removed. The interface design is too heavy.
 
 This function script has been updated in several versions since its birth.But as a result of above each version is not satisfactory, so I remove the dross and select the essence, then create [GitHubMirror](https://github.com/HaleShaw/TM-GitHubMirror)。
 
