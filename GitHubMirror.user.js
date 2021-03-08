@@ -4,7 +4,7 @@
 // @description        GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 // @description:en     GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 // @namespace          https://github.com/HaleShaw
-// @version            1.0.0
+// @version            1.1.0
 // @author             HaleShaw
 // @copyright          2021+, HaleShaw (https://github.com/HaleShaw)
 // @license            AGPL-3.0-or-later
@@ -181,8 +181,12 @@
         initSetting();
         message = getMessage(true, true);
         settingHtml = getSettingHtml();
-        let info = getMenuButtonPrefix() + getCloneList() + getBrowseList() + getMenuButtonSuffix();
-        $('h1.flex-wrap.break-word.text-normal').append(info);
+        let menuButtonHtml =
+            getMenuButtonPrefix() + getCloneList() + getBrowseList() + getMenuButtonSuffix();
+        $('h1.flex-wrap.break-word.text-normal').append(menuButtonHtml);
+        if (location.pathname.split('/')[3] == 'releases') {
+            addReleasesList();
+        }
     }
 
     /**
@@ -313,12 +317,15 @@
     function getCloneList() {
         const href = window.location.href.split('/');
         const git = href[3] + '/' + href[4] + '.git';
-        let info = '';
+        let menuButtonHtml = '';
         const prefix = getClonePrefix();
         cloneSet.forEach(id => {
-            info += getCloneHtml(prefix + mirrors[id]['url'] + '/' + git, mirrors[id]['name']);
+            menuButtonHtml += getCloneHtml(
+                prefix + mirrors[id]['url'] + '/' + git,
+                mirrors[id]['name']
+            );
         });
-        return info;
+        return menuButtonHtml;
     }
 
     function getMenuButtonSuffix() {
@@ -361,14 +368,14 @@
     }
 
     /**
-     * 添加镜像浏览列表
+     * Get the browse list.
      */
     function getBrowseList() {
-        let info = ``;
+        let menuButtonHtml = ``;
         const href = window.location.href.split('/');
         const path = window.location.pathname;
         browseSet.forEach(id => {
-            info += getBrowseHtml(
+            menuButtonHtml += getBrowseHtml(
                 mirrors[id]['url'] + path,
                 mirrors[id]['name'],
                 mirrors[id]['description']
@@ -379,14 +386,21 @@
             if (!path.includes('/blob/')) {
                 html += '/';
             }
-            info += getBrowseHtml(html, mirrors[5]['name'], mirrors[5]['description']);
+            menuButtonHtml += getBrowseHtml(html, mirrors[5]['name'], mirrors[5]['description']);
         }
         if (location.hostname != 'github.com') {
-            info += getBrowseHtml(`https://github.com${path}`, '返回GitHub');
+            menuButtonHtml += getBrowseHtml(`https://github.com${path}`, '返回GitHub');
         }
-        return info;
+        return menuButtonHtml;
     }
 
+    /**
+     * Get browse html string.
+     * @param {String} url url.
+     * @param {String} name name.
+     * @param {String} tip tip.
+     * @returns
+     */
     function getBrowseHtml(url, name, tip = '') {
         return `
         <a class="SelectMenu-item" href="${url}" target="_blank" title="${tip}" role="menuitemradio" aria-checked="false" rel="nofollow">
@@ -394,6 +408,28 @@
             <span class="css-truncate css-truncate-overflow" style="width: 520px; overflow: hidden; word-break:keep-all; white-space:nowrap; text-overflow:ellipsis;">${url}</span>
             <span class="css-truncate css-truncate-overflow" style="width: 80px; text-align: right;">${name}</span>
         </a>`;
+    }
+
+    function addReleasesList() {
+        $('.Box--condensed')
+            .find('[href]')
+            .each(function () {
+                const href = $(this).attr('href');
+                $(this)
+                    .parent()
+                    .after(`<div class="Box-body" >` + getReleaseDownloadHtml(href) + `</div>`);
+                $(this).parent().removeClass('Box-body');
+            });
+    }
+
+    function getReleaseDownloadHtml(href) {
+        let span = '';
+        downloadSet.forEach(id => {
+            span += `<a class="flex-1 btn btn-outline get-repo-btn" rel="nofollow" href="${
+                mirrors[id]['url'] + href
+            }" title="${mirrors[id]['description']}">${mirrors[id]['name']}</a>`;
+        });
+        return span;
     }
 
     /**
