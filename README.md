@@ -30,6 +30,8 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
 ## 截图
 
+### 克隆与镜像
+
 ![GitHubMirror_Chinese](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Chinese.png)
 
 ![GitHubMirror_English](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_English.png)
@@ -37,6 +39,10 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 ![GitHubMirror_NoneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneDepth.png)
 
 ![GitHubMirror_NoneCloneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneCloneDepth.png)
+
+### 发布
+
+![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
 
 ## 贡献者
 
@@ -76,6 +82,8 @@ This function script has been updated in several versions since its birth.But as
 
 ## Screenshots
 
+### Clone and Mirror
+
 ![GitHubMirror_Chinese](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Chinese.png)
 
 ![GitHubMirror_English](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_English.png)
@@ -83,6 +91,10 @@ This function script has been updated in several versions since its birth.But as
 ![GitHubMirror_NoneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneDepth.png)
 
 ![GitHubMirror_NoneCloneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneCloneDepth.png)
+
+### Release
+
+![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
 
 ## Contributors
 
