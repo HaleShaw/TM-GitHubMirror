@@ -170,6 +170,10 @@
     let settingHtml;
 
     main();
+    $(document).on('pjax:success', function () {
+        $('#mirror-menu').remove();
+        main();
+    });
 
     function main() {
         GM_addStyle(style);
