@@ -16,7 +16,6 @@
 // @icon               https://github.githubassets.com/favicon.ico
 // @require            https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
 // @include            *://github.com/*
-// @include            *://github*
 // @compatible	       Chrome
 // @run-at             document-end
 // @grant              GM_addStyle
