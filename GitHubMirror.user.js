@@ -4,7 +4,7 @@
 // @description        GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 // @description:en     GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 // @namespace          https://github.com/HaleShaw
-// @version            1.1.0
+// @version            1.2.0
 // @author             HaleShaw
 // @copyright          2021+, HaleShaw (https://github.com/HaleShaw)
 // @license            AGPL-3.0-or-later
@@ -186,6 +186,9 @@
         $('h1.flex-wrap.break-word.text-normal').append(menuButtonHtml);
         if (location.pathname.split('/')[3] == 'releases') {
             addReleasesList();
+        }
+        if (isPC) {
+            addDownloadZip();
         }
     }
 
@@ -410,6 +413,9 @@
         </a>`;
     }
 
+    /**
+     * Add Release list.
+     */
     function addReleasesList() {
         $('.Box--condensed')
             .find('[href]')
@@ -422,14 +428,45 @@
             });
     }
 
+    /**
+     * Get Release download button html string.
+     * @param {String} href href.
+     * @returns html.
+     */
     function getReleaseDownloadHtml(href) {
-        let span = '';
+        let html = '';
         downloadSet.forEach(id => {
-            span += `<a class="flex-1 btn btn-outline get-repo-btn" rel="nofollow" href="${
+            html += `<a class="flex-1 btn btn-outline get-repo-btn" rel="nofollow" href="${
                 mirrors[id]['url'] + href
             }" title="${mirrors[id]['description']}">${mirrors[id]['name']}</a>`;
         });
-        return span;
+        return html;
+    }
+
+    /**
+     * Add download zip button.
+     */
+    function addDownloadZip() {
+        $("a[data-open-app='link']").each(function () {
+            var li = $(`<li class="Box-row p-0"></li>`);
+            const downloadHref = $(this).attr('href');
+            var aElement = $(this)
+                .clone()
+                .removeAttr('data-hydro-click data-hydro-click-hmac data-ga-click');
+            aElement.addClass('Box-row Box-row--hover-gray');
+            downloadSet.forEach(id => {
+                let tempA = aElement.clone();
+                tempA.attr({
+                    href: mirrors[id]['url'] + downloadHref,
+                    title: mirrors[id]['description']
+                });
+                tempA.html(
+                    tempA.html().replace('Download ZIP', `Download ZIP(${mirrors[id]['name']})`)
+                );
+                li = li.clone().append(tempA);
+            });
+            $(this).parent().after(li);
+        });
     }
 
     /**

@@ -44,6 +44,10 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
 ![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
 
+### 下载ZIP
+
+![GitHubMirror_DownloadZIP](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_DownloadZIP.png)
+
 ## 贡献者
 
 - [<img src="https://greasyfork.org/packs/media/images/blacklogo16-5421a97c75656cecbe2befcec0778a96.png" width="32px" height="32px"/>码酷](https://greasyfork.org/zh-CN/scripts/383577)
@@ -95,6 +99,11 @@ This function script has been updated in several versions since its birth.But as
 ### Release
 
 ![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
+
+### Download ZIP
+
+![GitHubMirror_DownloadZIP](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_DownloadZIP.png)
+
 
 ## Contributors
 
