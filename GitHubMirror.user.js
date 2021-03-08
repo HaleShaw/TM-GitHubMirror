@@ -4,7 +4,7 @@
 // @description        GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 // @description:en     GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 // @namespace          https://github.com/HaleShaw
-// @version            1.2.0
+// @version            1.3.0
 // @author             HaleShaw
 // @copyright          2021+, HaleShaw (https://github.com/HaleShaw)
 // @license            AGPL-3.0-or-later
@@ -83,47 +83,61 @@
         },
         {
             id: 3,
-            name: 'wuyanzheshui',
-            url: 'https://github.wuyanzheshui.workers.dev',
-            description: 'wuyanzheshui，每日10万次调用上限'
+            name: 'FastGit',
+            url: 'https://raw.fastgit.org',
+            description: 'KevinZonda'
         },
         {
             id: 4,
-            name: 'RC1844',
-            url: 'https://github.rc1844.workers.dev',
-            description: 'RC1844，每日10万次调用上限'
+            name: 'WuYanZheShui',
+            url: 'https://github.wuyanzheshui.workers.dev',
+            description: 'WuYanZheShui. Maximum of 100,000 calls per day'
         },
         {
             id: 5,
-            name: 'jsDelivr',
-            url: 'https://cdn.jsdelivr.net/gh',
-            description: '项目当前分支总文件大小不可超过50MB'
+            name: 'RC1844',
+            url: 'https://github.rc1844.workers.dev',
+            description: 'RC1844. Maximum of 100,000 calls per day'
         },
         {
             id: 6,
-            name: 'IAPK',
-            url: 'https://github.iapk.cc',
-            description: 'IAPK工具箱，Github下载器'
+            name: 'jsDelivr',
+            url: 'https://cdn.jsdelivr.net/gh',
+            description:
+                'The total file size of the current branch of the project cannot exceed 50MB'
         },
         {
             id: 7,
-            name: 'Ecalose',
-            url: 'https://gh.haval.gq',
-            description: 'Ecalose，每日10万次调用上限'
+            name: 'IAPK',
+            url: 'https://github.iapk.cc',
+            description: 'IAPK'
         },
         {
             id: 8,
+            name: 'Ecalose',
+            url: 'https://gh.haval.gq',
+            description: 'Ecalose. Maximum of 100,000 calls per day'
+        },
+        {
+            id: 9,
             name: 'IAPK',
             url: 'https://iapk.cc/github?url=https://github.com',
-            description: 'IAPK工具箱，Github下载器'
+            description: 'IAPK'
+        },
+        {
+            id: 10,
+            name: 'Statically',
+            url: 'https://cdn.staticaly.com/gh',
+            description:
+                'Only images and source code files are supported, and the file size is limited to 30MB'
         }
     ];
 
     //添加对应索引即可使用
-    const cloneSet = [0, 1, 3];
-    const browseSet = [0, 1, 3, 4, 6, 7];
-    const downloadSet = [2, 3, 4, 7, 8];
-    const rawSet = [3, 4, 7, 8];
+    const cloneSet = [0, 1, 4];
+    const browseSet = [0, 1, 4, 5, 7, 8];
+    const downloadSet = [2, 4, 5, 8, 9];
+    const rawSet = [3, 4, 5, 6, 8, 9, 10];
 
     const messages = {
         en: {
@@ -187,9 +201,10 @@
         if (location.pathname.split('/')[3] == 'releases') {
             addReleasesList();
         }
-        if (isPC) {
+        if (isPC()) {
             addDownloadZip();
         }
+        addRawList();
     }
 
     /**
@@ -470,6 +485,40 @@
     }
 
     /**
+     * Add Raw list.
+     */
+    function addRawList() {
+        $('#raw-url').each(function () {
+            var href = $(this).attr('href');
+            rawSet.forEach(id => {
+                if (id == 3 || id == 10) {
+                    getRawHtml(id, mirrors[id]['url'] + href.replace('/raw', ''));
+                } else if (id == 6) {
+                    getRawHtml(id, mirrors[id]['url'] + href.replace('/raw/', '@'));
+                } else {
+                    getRawHtml(id, mirrors[id]['url'] + href);
+                }
+            });
+        });
+    }
+
+    /**
+     *
+     * @param {Number} id id of mirrors.
+     * @param {String} url url.
+     */
+    function getRawHtml(id, url) {
+        var span = $('#raw-url').clone().removeAttr('id');
+        span.attr({
+            href: url,
+            title: mirrors[id]['description'],
+            target: '_blank'
+        });
+        span.text(mirrors[id]['name']);
+        $('#raw-url').before(span);
+    }
+
+    /**
      * Get message by setting.
      */
     function getMessage() {
@@ -487,5 +536,22 @@
         const logTitle = ' ' + title + ' ';
         const logVersion = ' ' + version + ' ';
         console.log('%c' + logTitle + '%c' + logVersion, titleStyle, versionStyle);
+    }
+
+    /**
+     * Check if the visitor is PC.
+     */
+    function isPC() {
+        var userAgentInfo = navigator.userAgent;
+        var agents = ['Android', 'iPhone', 'SymbianOS', 'Windows Phone', 'iPad', 'iPod'];
+        var isPC = true;
+        const len = agents.length;
+        for (var v = 0; v < len; v++) {
+            if (userAgentInfo.indexOf(agents[v]) > 0) {
+                isPC = false;
+                break;
+            }
+        }
+        return isPC;
     }
 })();
