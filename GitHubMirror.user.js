@@ -4,14 +4,14 @@
 // @description        GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 // @description:en     GitHub mirror. Accelerate access to GitHub. Support Clone, Release, RAW and ZIP acceleration.
 // @namespace          https://github.com/HaleShaw
-// @version            1.3.0
+// @version            1.3.1
 // @author             HaleShaw
 // @copyright          2021+, HaleShaw (https://github.com/HaleShaw)
 // @license            AGPL-3.0-or-later
 // @homepage           https://github.com/HaleShaw/TM-GitHubMirror
 // @supportURL         https://github.com/HaleShaw/TM-GitHubMirror/issues
-// @downloadURL        https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/GitHubMirror.user.js
-// @updateURL          https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/GitHubMirror.user.js
+// @downloadURL        https://github.com/HaleShaw/TM-GitHubMirror/raw/main/GitHubMirror.user.js
+// @updateURL          https://github.com/HaleShaw/TM-GitHubMirror/raw/main/GitHubMirror.user.js
 // @contributionURL    https://www.jianwudao.com/
 // @icon               https://github.githubassets.com/favicon.ico
 // @require            https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
@@ -194,9 +194,8 @@
         initSetting();
         message = getMessage(true, true);
         settingHtml = getSettingHtml();
-        let menuButtonHtml =
-            getMenuButtonPrefix() + getCloneList() + getBrowseList() + getMenuButtonSuffix();
-        $('h1.flex-wrap.break-word.text-normal').append(menuButtonHtml);
+        let menuButtonHtml = getMenuButtonPrefix() + getCloneList() + getBrowseList() + getMenuButtonSuffix();
+        $('div.d-flex.flex-wrap.flex-items-center.wb-break-word.f3.text-normal').append(menuButtonHtml);
         if (location.pathname.split('/')[3] == 'releases') {
             addReleasesList();
         }
@@ -431,15 +430,26 @@
      * Add Release list.
      */
     function addReleasesList() {
-        $('.Box--condensed')
-            .find('[href]')
-            .each(function () {
-                const href = $(this).attr('href');
-                $(this)
-                    .parent()
-                    .after(`<div class="Box-body" >` + getReleaseDownloadHtml(href) + `</div>`);
-                $(this).parent().removeClass('Box-body');
-            });
+        let length = 0;
+        let timeout = 0;
+        let interval = setInterval(() => {
+            timeout += 1;
+            length = $('.Box--condensed').find('[href]').length;
+
+            // Stop the circulator when the element is found or after 10 seconds(100*100 ms).
+            if (timeout == 100 || length > 0) {
+                clearInterval(interval);
+                $('.Box--condensed')
+                    .find('[href]')
+                    .each(function () {
+                        const href = $(this).attr('href');
+                        $(this)
+                            .parent()
+                            .after(`<div class="Box-body" >` + getReleaseDownloadHtml(href) + `</div>`);
+                        $(this).parent().removeClass('Box-body');
+                    });
+            }
+        }, 100);
     }
 
     /**
