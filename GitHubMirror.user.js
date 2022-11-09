@@ -14,7 +14,7 @@
 // @updateURL          https://github.com/HaleShaw/TM-GitHubMirror/raw/main/GitHubMirror.user.js
 // @contributionURL    https://www.jianwudao.com/
 // @icon               https://github.githubassets.com/favicon.ico
-// @require            https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js
+// @require            https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js
 // @include            *://github.com/*
 // @compatible	       Chrome
 // @run-at             document-end
