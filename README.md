@@ -92,10 +92,6 @@ This function script has been updated in several versions since its birth.But as
 
 ![GitHubMirror_English](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_English.png)
 
-![GitHubMirror_NoneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneDepth.png)
-
-![GitHubMirror_NoneCloneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneCloneDepth.png)
-
 ### Release
 
 ![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
