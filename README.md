@@ -36,10 +36,6 @@ GitHub镜像，加速访问GitHub，支持Clone、Release、Raw、Zip加速。
 
 ![GitHubMirror_English](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_English.png)
 
-![GitHubMirror_NoneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneDepth.png)
-
-![GitHubMirror_NoneCloneDepth](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_NoneCloneDepth.png)
-
 ### 发布
 
 ![GitHubMirror_Release](https://raw.githubusercontent.com/HaleShaw/TM-GitHubMirror/master/Screenshots/GitHubMirror_Release.png)
